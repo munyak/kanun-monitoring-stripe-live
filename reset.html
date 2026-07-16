@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Set new password · KaNun Monitoring</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/auth.css" />
+</head>
+<body>
+  <div class="auth-wrap" id="wrap"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/config.js"></script>
+  <script src="/assets/auth.js"></script>
+  <script>
+    document.getElementById('wrap').innerHTML = brandPane() + `
+      <div class="form-pane">
+        <div class="card">
+          <h2>Set a new password</h2>
+          <p class="sub">Choose a new password for your account.</p>
+
+          <div class="msg" id="msg"></div>
+
+          <form id="resetForm">
+            <div class="field">
+              <label for="pass">New password</label>
+              <input id="pass" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required />
+            </div>
+            <div class="field">
+              <label for="pass2">Confirm new password</label>
+              <input id="pass2" type="password" autocomplete="new-password" placeholder="Re-enter password" minlength="8" required />
+            </div>
+            <button class="btn btn-primary" id="btn" type="submit">Update password</button>
+          </form>
+
+          <p class="foot-note"><a href="/login.html">&larr; Back to sign in</a></p>
+        </div>
+      </div>`
+
+    const msg = document.getElementById('msg')
+    const form = document.getElementById('resetForm')
+
+    // The recovery link puts a token in the URL; supabase-js (detectSessionInUrl)
+    // exchanges it for a temporary session and fires PASSWORD_RECOVERY.
+    let recoveryReady = false
+    sb.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN') recoveryReady = true
+    })
+
+    // Validate that we actually arrived from a valid recovery link.
+    ;(async () => {
+      // Give detectSessionInUrl a moment to process the hash.
+      await new Promise(r => setTimeout(r, 400))
+      const { data } = await sb.auth.getSession()
+      if (!data.session && !recoveryReady) {
+        showMsg(msg, 'This reset link is invalid or has expired. Please request a new one from the sign-in page.', 'error')
+      }
+    })()
+
+    form.onsubmit = async (e) => {
+      e.preventDefault(); clearMsg(msg)
+      const pass = document.getElementById('pass').value
+      const pass2 = document.getElementById('pass2').value
+      if (pass !== pass2) { showMsg(msg, 'Passwords do not match.'); return }
+      const btn = document.getElementById('btn'); setBusy(btn, true, 'Updating…')
+      const { error } = await sb.auth.updateUser({ password: pass })
+      setBusy(btn, false)
+      if (error) { showMsg(msg, friendlyError(error)); return }
+      showMsg(msg, 'Password updated. Redirecting you to your dashboard…', 'ok')
+      form.reset()
+      setTimeout(() => window.location.replace(window.APP_REDIRECT), 1200)
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Cancelled - KaNun Monitoring</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .cancel-icon {
+            width: 60px;
+            height: 60px;
+            background: #f59e0b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+        }
+        
+        h1 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .message-box {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .features {
+            text-align: left;
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .features h3 {
+            color: #1f2937;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #374151;
+        }
+        
+        .feature-item:before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+        
+        .help-text {
+            color: #6b7280;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        
+        .help-text a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .help-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cancel-icon">!</div>
+        
+        <h1>Checkout Cancelled</h1>
+        <p class="subtitle">
+            Your subscription wasn't completed. No charges were made to your account.
+        </p>
+        
+        <div class="message-box">
+            <strong>Your free 14-day trial is still available.</strong> You can start anytime at no cost — no credit card required.
+        </div>
+        
+        <div class="features">
+            <h3>What you'll get with KaNun:</h3>
+            <div class="feature-item">Full mobile-first platform</div>
+            <div class="feature-item">Client intake & case management</div>
+            <div class="feature-item">Smart scheduling & GPS verification</div>
+            <div class="feature-item">Standardized, court-ready reports</div>
+            <div class="feature-item">Team analytics & dashboard</div>
+            <div class="feature-item">Priority email support</div>
+        </div>
+        
+        <div class="cta-buttons">
+            <a href="https://kanunmonitoring.com/#pricing" class="btn btn-primary">
+                View Pricing & Try Free
+            </a>
+            <a href="https://kanunmonitoring.com" class="btn btn-secondary">
+                Back to Home
+            </a>
+        </div>
+        
+        <div class="help-text">
+            <p>
+                Questions about our plans? 
+                <a href="mailto:munya@kanunmonitoring.com">Contact us directly</a> — we're here to help.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Log cancellation for analytics if needed
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+        
+        if (sessionId) {
+            console.log('Cancelled Checkout Session ID:', sessionId);
+            localStorage.setItem('lastCancelledSessionId', sessionId);
+        }
+    </script>
+</body>
+</html>

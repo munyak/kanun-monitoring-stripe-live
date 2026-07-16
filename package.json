@@ -1,0 +1,16 @@
+{
+  "name": "kanun-monitoring",
+  "version": "1.0.0",
+  "description": "KaNun Monitoring - Supervised Visitation Platform",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "stripe": "^14.0.0"
+  },
+  "devDependencies": {},
+  "keywords": ["kanun", "monitoring", "visitation"],
+  "author": "Geoffrey Butler",
+  "license": "ISC"
+}

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaNun Monitoring — Supervised Visitation, Professionally Managed</title>
+  <meta name="description" content="KaNun Monitoring is the professional platform for supervised visitation: secure scheduling, clear documentation, and court-ready reports. Demo environment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/auth.css" />
+  <style>
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:20px 40px; max-width:1120px; margin:0 auto; }
+    .nav .wordmark { color: var(--green-900); }
+    .nav .wordmark .mark { background: var(--green-050); }
+    .nav .wordmark .mark svg { stroke: var(--green-700); }
+    .nav-actions { display:flex; align-items:center; gap:12px; }
+    .nav-actions a { text-decoration:none; }
+    .btn-inline { width:auto; padding:9px 18px; font-size:14px; }
+    .hero { max-width:1120px; margin:0 auto; padding:64px 40px 48px; }
+    .eyebrow { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--green-700); background:var(--green-050); padding:6px 12px; border-radius:999px; margin-bottom:22px; }
+    .hero h1 { font-size:clamp(34px,5vw,56px); line-height:1.05; font-weight:800; letter-spacing:-.03em; margin:0 0 20px; max-width:16ch; }
+    .hero p.lede { font-size:19px; color:var(--ink-soft); max-width:54ch; margin:0 0 32px; }
+    .cta-row { display:flex; gap:14px; flex-wrap:wrap; }
+    .cta-row .btn { width:auto; padding:13px 26px; font-size:16px; }
+    .features { max-width:1120px; margin:0 auto; padding:24px 40px 80px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
+    .feature { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow); }
+    .feature .ic { width:42px; height:42px; border-radius:11px; background:var(--green-050); display:grid; place-items:center; margin-bottom:16px; }
+    .feature .ic svg { stroke:var(--green-700); }
+    .feature h3 { margin:0 0 7px; font-size:17px; letter-spacing:-.01em; }
+    .feature p { margin:0; color:var(--ink-soft); font-size:14px; }
+    .pricing-section { max-width:1120px; margin:0 auto; padding:80px 40px; }
+    .pricing-header { text-align:center; margin-bottom:60px; }
+    .pricing-header h2 { font-size:42px; font-weight:800; letter-spacing:-.03em; margin:0 0 16px; }
+    .pricing-header p { font-size:18px; color:var(--ink-soft); max-width:60ch; margin:0 auto; }
+    .pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; }
+    .pricing-card { background:var(--card); border:2px solid var(--line); border-radius:var(--radius); padding:40px; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+    .pricing-card.featured { border-color:var(--green-700); background:linear-gradient(135deg,var(--green-050) 0%,var(--card) 100%); }
+    .pricing-card .badge { display:inline-block; background:var(--green-100); color:var(--green-800); font-size:12px; font-weight:600; padding:6px 12px; border-radius:999px; width:fit-content; margin-bottom:16px; }
+    .pricing-card h3 { font-size:24px; font-weight:700; margin:0 0 8px; }
+    .pricing-card .price { font-size:48px; font-weight:800; color:var(--green-700); margin:16px 0 8px; }
+    .pricing-card .price span { font-size:18px; color:var(--ink-soft); }
+    .pricing-card .description { color:var(--ink-soft); font-size:15px; margin:0 0 28px; flex-grow:1; }
+    .pricing-card .features { list-style:none; padding:0; margin:0 0 28px; }
+    .pricing-card .features li { padding:10px 0; border-bottom:1px solid var(--line); font-size:15px; }
+    .pricing-card .features li:before { content:"✓ "; color:var(--green-700); font-weight:600; margin-right:8px; }
+    .pricing-card .cta { width:100%; }
+    .footer { border-top:1px solid var(--line); padding:28px 40px; text-align:center; color:var(--ink-soft); font-size:13px; }
+    @media (max-width:600px){ .nav, .hero, .features, .pricing-section { padding-left:22px; padding-right:22px; } .pricing-card { padding:28px; } .pricing-card .price { font-size:36px; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="wordmark">
+      <span class="mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+      KaNun Monitoring
+    </a>
+    <div class="nav-actions">
+      <a href="/login.html" class="btn btn-ghost btn-inline">Sign in</a>
+      <a href="/signup.html" class="btn btn-primary btn-inline">Get started</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow">Supervised Visitation Platform</span>
+    <h1>Every visit, clearly documented and professionally managed.</h1>
+    <p class="lede">KaNun Monitoring gives agencies, monitors, parents, and counsel one secure place to schedule visits, capture observations, and produce court-ready reports.</p>
+    <div class="cta-row">
+      <a href="/signup.html" class="btn btn-primary">Create an account</a>
+      <a href="/login.html" class="btn btn-ghost">Sign in</a>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="feature">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+      <h3>Secure scheduling</h3>
+      <p>Coordinate visits across families and monitors with clear roles and reminders.</p>
+    </div>
+    <div class="feature">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+      <h3>Court-ready reports</h3>
+      <p>Turn observations into consistent, defensible documentation that holds up in court.</p>
+    </div>
+    <div class="feature">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>Private &amp; encrypted</h3>
+      <p>Role-based access keeps sensitive family information protected at every step.</p>
+    </div>
+  </section>
+
+  <section class="pricing-section">
+    <div class="pricing-header">
+      <h2>Transparent Pricing</h2>
+      <p>Choose the plan that fits your agency or monitoring practice. All plans include a 14-day free trial.</p>
+    </div>
+    
+    <div class="pricing-grid">
+      <!-- Solo Monitor -->
+      <div class="pricing-card">
+        <div class="badge">For Independent Monitors</div>
+        <h3>Solo Monitor</h3>
+        <div class="price">$39<span>/month</span></div>
+        <p class="description">Perfect for individual monitors managing their own cases.</p>
+        <ul class="features">
+          <li>Full mobile platform</li>
+          <li>Client intake forms</li>
+          <li>GPS-verified documentation</li>
+          <li>Automated report generation</li>
+          <li>Secure photo &amp; video upload</li>
+          <li>Email notifications</li>
+        </ul>
+        <button class="checkout-btn cta btn btn-primary" data-price-id="price_1TtFcKBryn2IZeeRuZhZJJJL">
+          Start 14-Day Free Trial
+        </button>
+      </div>
+
+      <!-- Agency (Featured) -->
+      <div class="pricing-card featured">
+        <div class="badge">Most Popular</div>
+        <h3>Agency</h3>
+        <div class="price">$79<span>/month</span></div>
+        <p class="description">For agencies managing multiple monitors and cases.</p>
+        <ul class="features">
+          <li>Everything in Solo, plus:</li>
+          <li>Manage up to 5 monitors</li>
+          <li>Agency dashboard</li>
+          <li>Team scheduling</li>
+          <li>Bulk reporting</li>
+          <li>Client management</li>
+          <li>Custom branding</li>
+        </ul>
+        <button class="checkout-btn cta btn btn-primary" data-price-id="price_1TtFcKBryn2IZeeRwxvZ0Swh">
+          Start 14-Day Free Trial
+        </button>
+      </div>
+
+      <!-- Agency Pro -->
+      <div class="pricing-card">
+        <div class="badge">For Large Agencies</div>
+        <h3>Agency Pro</h3>
+        <div class="price">$149<span>/month</span></div>
+        <p class="description">Unlimited capacity with advanced features and priority support.</p>
+        <ul class="features">
+          <li>Everything in Agency, plus:</li>
+          <li>Unlimited monitors</li>
+          <li>Advanced analytics</li>
+          <li>Priority email support</li>
+          <li>API access</li>
+          <li>SSO authentication</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <button class="checkout-btn cta btn btn-primary" data-price-id="price_1TtFcLBryn2IZeeRXlzKL5LI">
+          Start 14-Day Free Trial
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    KaNun Monitoring · Professional supervised visitation management.
+  </footer>
+
+  <!-- Stripe Checkout Handler -->
+  <script src="stripe-checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "stripe_mode": "live",
+  "created_at": "2026-07-14T16:20:01.120842",
+  "products": {
+    "solo_monitor": {
+      "product_id": "prod_Ut1fokU6Qc1YlL",
+      "name": "Solo Monitor"
+    },
+    "agency": {
+      "product_id": "prod_Ut1fnuhAjMZzQf",
+      "name": "Agency"
+    },
+    "agency_pro": {
+      "product_id": "prod_Ut1fqFcQDZXKC0",
+      "name": "Agency Pro"
+    }
+  },
+  "prices": {
+    "solo_monitor": {
+      "price_id": "price_1TtFcKBryn2IZeeRuZhZJJJL",
+      "amount": 3900,
+      "currency": "usd"
+    },
+    "agency": {
+      "price_id": "price_1TtFcKBryn2IZeeRwxvZ0Swh",
+      "amount": 7900,
+      "currency": "usd"
+    },
+    "agency_pro": {
+      "price_id": "price_1TtFcLBryn2IZeeRXlzKL5LI",
+      "amount": 14900,
+      "currency": "usd"
+    }
+  }
+}

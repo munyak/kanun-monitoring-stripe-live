@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create account · KaNun Monitoring</title>
+  <meta name="description" content="Create your KaNun Monitoring account." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/auth.css" />
+</head>
+<body>
+  <div class="auth-wrap" id="wrap"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/config.js"></script>
+  <script src="/assets/auth.js"></script>
+  <script>
+    document.getElementById('wrap').innerHTML = brandPane() + `
+      <div class="form-pane">
+        <div class="card">
+          <h2>Create your account</h2>
+          <p class="sub">Get started with KaNun Monitoring.</p>
+
+          <div class="msg" id="msg"></div>
+
+          <div class="social-row">
+            <button class="btn btn-social" id="googleBtn" type="button">${GOOGLE_SVG} Google</button>
+            <button class="btn btn-social" id="facebookBtn" type="button">${FACEBOOK_SVG} Facebook</button>
+          </div>
+
+          <div class="divider">or</div>
+
+          <form id="signupForm">
+            <div class="field">
+              <label for="suName">Full name</label>
+              <input id="suName" type="text" autocomplete="name" placeholder="Jordan Rivera" required />
+            </div>
+            <div class="field">
+              <label for="suEmail">Email</label>
+              <input id="suEmail" type="email" autocomplete="username" placeholder="you@agency.com" required />
+            </div>
+            <div class="field">
+              <label for="suPass">Password</label>
+              <input id="suPass" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required />
+            </div>
+            <button class="btn btn-primary" id="suBtn" type="submit">Create account</button>
+          </form>
+
+          <p class="foot-note">Already have an account? <a href="/login.html">Sign in</a></p>
+        </div>
+      </div>`
+
+    const msg = document.getElementById('msg')
+    redirectIfAuthed()
+
+    document.getElementById('googleBtn').onclick = () => socialSignIn('google', msg)
+    document.getElementById('facebookBtn').onclick = () => socialSignIn('facebook', msg)
+
+    document.getElementById('signupForm').onsubmit = async (e) => {
+      e.preventDefault(); clearMsg(msg)
+      const btn = document.getElementById('suBtn'); setBusy(btn, true, 'Creating…')
+      const full_name = document.getElementById('suName').value.trim()
+      const email = document.getElementById('suEmail').value.trim()
+      const password = document.getElementById('suPass').value
+      const { data, error } = await sb.auth.signUp({
+        email, password,
+        options: {
+          data: { full_name },
+          emailRedirectTo: window.location.origin + window.APP_REDIRECT,
+        },
+      })
+      setBusy(btn, false)
+      if (error) { showMsg(msg, friendlyError(error)); return }
+      // If a session is returned, the account is active immediately (email confirmation off).
+      if (data.session) { window.location.replace(window.APP_REDIRECT); return }
+      showMsg(msg, `Account created. Check ${email} to confirm your address, then sign in.`, 'ok')
+      document.getElementById('signupForm').reset()
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reset password · KaNun Monitoring</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/auth.css" />
+</head>
+<body>
+  <div class="auth-wrap" id="wrap"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/config.js"></script>
+  <script src="/assets/auth.js"></script>
+  <script>
+    document.getElementById('wrap').innerHTML = brandPane() + `
+      <div class="form-pane">
+        <div class="card">
+          <h2>Reset your password</h2>
+          <p class="sub">Enter your email and we'll send you a link to set a new password.</p>
+
+          <div class="msg" id="msg"></div>
+
+          <form id="forgotForm">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" autocomplete="username" placeholder="you@agency.com" required />
+            </div>
+            <button class="btn btn-primary" id="btn" type="submit">Send reset link</button>
+          </form>
+
+          <p class="foot-note"><a href="/login.html">&larr; Back to sign in</a></p>
+        </div>
+      </div>`
+
+    const msg = document.getElementById('msg')
+
+    document.getElementById('forgotForm').onsubmit = async (e) => {
+      e.preventDefault(); clearMsg(msg)
+      const btn = document.getElementById('btn'); setBusy(btn, true, 'Sending…')
+      const email = document.getElementById('email').value.trim()
+      const { error } = await sb.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + '/reset.html',
+      })
+      setBusy(btn, false)
+      if (error) { showMsg(msg, friendlyError(error)); return }
+      showMsg(msg, `If an account exists for ${email}, a reset link is on its way. Check your inbox.`, 'ok')
+      document.getElementById('forgotForm').reset()
+    }
+  </script>
+</body>
+</html>

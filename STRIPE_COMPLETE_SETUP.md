@@ -36,7 +36,7 @@ netlify/functions/
 
 ### Required Environment Variables (Set in Netlify Dashboard):
 ```
-STRIPE_SECRET_KEY=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
+STRIPE_SECRET_KEY=sk_live_REDACTED_expired_and_rotated
 STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxx (generated after webhook setup)
 ```
 

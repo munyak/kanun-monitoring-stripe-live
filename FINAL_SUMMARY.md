@@ -187,8 +187,8 @@ Events received:
 ### Environment Variables (in Netlify)
 
 ```
-STRIPE_SECRET_KEY=sk_live_51Tq7o4Bryn2IZeeR...
-STRIPE_WEBHOOK_SECRET=whsec_USZ6tyvSpq61F3bQIpsO0boq8iWzKPaq
+STRIPE_SECRET_KEY=sk_live_REDACTED_expired_and_rotated...
+STRIPE_WEBHOOK_SECRET=whsec_REDACTED_roll_at_cutover
 ```
 
 ### Webhook Configuration (in Stripe)

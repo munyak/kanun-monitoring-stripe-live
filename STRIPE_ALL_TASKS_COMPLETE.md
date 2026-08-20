@@ -71,7 +71,7 @@ Go to the home page and scroll down to see:
 ```
 Endpoint ID:     we_1TtHiLBryn2IZeeR8YjmcW3G
 URL:             https://lighthearted-brioche-b65f7d.netlify.app/.netlify/functions/webhooks-stripe
-Signing Secret:  whsec_USZ6tyvSpq61F3bQIpsO0boq8iWzKPaq
+Signing Secret:  whsec_REDACTED_roll_at_cutover
 Status:          🟢 Enabled
 Events:          6 (checkout, subscription, invoice)
 ```
@@ -85,8 +85,8 @@ Agency Pro:      price_1TtFcLBryn2IZeeRXlzKL5LI  ($149/month)
 
 ### Environment Variables (Netlify)
 ```
-STRIPE_SECRET_KEY=sk_live_51Tq7o4Bryn2IZeeR... ✅
-STRIPE_WEBHOOK_SECRET=whsec_USZ6tyvSpq61F3bQIpsO0boq8iWzKPaq ✅
+STRIPE_SECRET_KEY=sk_live_REDACTED_expired_and_rotated... ✅
+STRIPE_WEBHOOK_SECRET=whsec_REDACTED_roll_at_cutover ✅
 ```
 
 ---

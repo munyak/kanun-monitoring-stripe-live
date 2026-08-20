@@ -39,7 +39,7 @@
 ```
 Stripe Account:       acct_1Tq7o4Bryn2IZeeR
 Webhook Endpoint:     we_1TtHiLBryn2IZeeR8YjmcW3G
-Webhook Secret:       whsec_USZ6tyvSpq61F3bQIpsO0boq8iWzKPaq
+Webhook Secret:       whsec_REDACTED_roll_at_cutover
 
 Netlify Site ID:      lighthearted-brioche-b65f7d
 Custom Domain:        kanunmonitoring.com

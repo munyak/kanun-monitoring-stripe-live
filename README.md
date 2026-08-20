@@ -70,8 +70,8 @@ kanun-monitoring-next/
 These are set in Netlify Dashboard > Site Settings > Build & Deploy > Environment
 
 ```
-STRIPE_SECRET_KEY=sk_live_51Tq7o4Bryn2IZeeR...
-STRIPE_WEBHOOK_SECRET=whsec_USZ6tyvSpq61F3bQIpsO0boq8iWzKPaq
+STRIPE_SECRET_KEY=sk_live_REDACTED_expired_and_rotated...
+STRIPE_WEBHOOK_SECRET=whsec_REDACTED_roll_at_cutover
 ```
 
 **⚠️ SECURITY:** Never commit `.env` files or expose secret keys in the codebase.
@@ -102,7 +102,7 @@ STRIPE_WEBHOOK_SECRET=whsec_USZ6tyvSpq61F3bQIpsO0boq8iWzKPaq
 |---------|-------|
 | Endpoint ID | we_1TtHiLBryn2IZeeR8YjmcW3G |
 | URL | https://kanunmonitoring.com/.netlify/functions/webhooks-stripe |
-| Signing Secret | whsec_USZ6tyvSpq61F3bQIpsO0boq8iWzKPaq |
+| Signing Secret | whsec_REDACTED_roll_at_cutover |
 | Status | ✅ Enabled |
 
 **Events Configured:**
